@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Brasil de Souza"
+  given-names: "Guilherme"
+  orcid: "https://orcid.org/0009-0000-4750-6365"
+title: "NPE-PSQ-2D/3D: Physics-Compliant Tokamak Vertical Dynamics Simulator"
+version: 3.4.0
+doi: 10.5281/zenodo.18064672
+date-released: 2025-12-26
+url: "https://github.com/Akirabrs/NPE-PSQ-2D"
+keywords:
+  - nuclear fusion
+  - control theory
+  - tokamak
+  - vertical stability
+  - python
