@@ -1,4 +1,5 @@
 # ⚛️ NPE-PSQ-2D: Tokamak Physics Engine v4.0
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18065774.svg)](https://doi.org/10.5281/zenodo.18065774)
 
 ![Plasma Stabilization](nmpc_stabilization.gif)
 
