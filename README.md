@@ -13,3 +13,9 @@ O **NPE-PSQ** é um simulador de alta fidelidade para dinâmica vertical de plas
 
 ## 📄 Documentação
 Veja os detalhes matemáticos em [`paper.md`](paper.md).
+
+## ⚡ ATUALIZAÇÃO 2026: INTEGRAÇÃO AION-CORE
+Este repositório agora inclui o ecossistema de controle **AION-CORE**, evoluindo a base NPE-PSQ para:
+- Controle de Plasma 3D (44 variáveis de estado).
+- Módulo de Injeção Forense para validação com dados reais (JET/DIII-D).
+- Prontidão para Hardware-in-the-Loop (HIL).
