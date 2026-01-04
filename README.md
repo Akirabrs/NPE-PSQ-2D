@@ -1,45 +1,28 @@
+
+# ⚛️ NPE-PSQ-2D: AION-CORE Ecosystem v4.5
+
 <div align="center">
-
-# ⚛️ NPE-PSQ-2D: Tokamak Physics Engine & AION-CORE Ecosystem v4.5
-
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18136444.svg)](https://doi.org/10.5281/zenodo.18136444)
-[![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://python.org)
-[![Status](https://img.shields.io/badge/Status-HIL--Ready-success.svg)](https://github.com/Akirabrs/NPE-PSQ-2D)
-
-**Simulação de Alta Fidelidade e Controle Preditivo para Estabilização de Plasma**
-
-[🚀 Quick Start](#-quick-start) • [🏗️ Arquitetura](#-arquitetura-do-sistema) • [📊 Resultados](#-resultados) • [📄 Licença](#-licença)
-
-![Plasma Stabilization](https://raw.githubusercontent.com/Akirabrs/NPE-PSQ-2D/main/assets/nmpc_stabilization.gif)
-*Estabilização de Vertical Displacement Events (VDE) com controle NMPC e envelope de incerteza.*
-
+  <img src="assets/nmpc_stabilization.gif" width="600">
+  <p><i>Visualização do controle preditivo estabilizando a posição vertical do plasma (VDE).</i></p>
 </div>
 
 ---
 
-## 🏗️ Arquitetura do Sistema (Ecossistema Integrado)
+## 🏗️ Arquitetura: Interface Bridge (PI-POD)
+Este repositório integra a física do **NPE-PSQ** (44 variáveis) com o controle de tempo real do **AION-CORE** via uma camada de redução inteligente.
 
-O projeto opera como um ecossistema trifásico, conectando a física teórica ao hardware em tempo real:
-
-1.  **NPE-PSQ-2D (Física)**: Simulador de 44 variáveis de estado que modela a dinâmica MHD do plasma.
-2.  **AION-POD-REDUCER (Ponte)**: Camada de interface que utiliza **Lógica de Derivação Física** para reduzir a complexidade de 44 para 12 estados fundamentais.
-3.  **AION-CORE (Controle)**: Kernel de controle projetado para hardware (Edge AI/FPGA), tomando decisões em menos de 1µs.
-
-
-
-## 🧠 Lógica de Derivação Física (PI-POD)
-Diferente de reduções puramente matemáticas, o AION utiliza relações constitutivas:
-- **Estados Fundamentais**: Medição direta de $z, r, Ip, n_e, T_e$.
-- **Estados Derivados**: Variáveis como $\beta_n$, $W_{mhd}$ e $B_{tor}$ são calculadas via leis físicas (Lei de Ampère, Gases Ideais), garantindo consistência e velocidade.
+### 🧠 Lógica de Derivação Física (A Sua Ideia)
+O sistema não apenas reduz dados estatisticamente, mas utiliza **Leis Constitutivas**:
+- **Estados Fundamentais**: Processamento direto de $z, r, Ip, ne, Te$.
+- **Estados Derivados**: Variáveis como $\beta_n$ e $B_{tor}$ são derivadas via lógica física (Ex: $B_{tor} = f(Ip)$ via Lei de Ampère).
+- **Vantagem**: Garante consistência física e resposta em hardware em menos de **1µs**.
 
 ---
 
-## 🚀 Quick Start
+## 📂 Organização do Repositório
+- `/AION_CORE/core`: Implementação do PI-POD Reducer.
+- `/AION_CORE/docs`: Dicionário de estados (44 variáveis).
+- `/assets`: Recursos visuais e animações de simulação.
 
-### Estrutura de Pastas
-```text
-/AION_CORE/
-├── core/           # Redutor POD e Kernel de Controle
-├── ai_models/      # Modelos treinados (GhostHunter)
-├── forensics/      # Injetor de dados Reais (JET/DIII-D)
-└── docs/           # Dicionário de Variáveis
+## 🛡️ Transparência
+Projeto desenvolvido por **Guilherme Brasil de Souza**. Assistência técnica de LLMs utilizada para otimização de código sob supervisão científica original.
